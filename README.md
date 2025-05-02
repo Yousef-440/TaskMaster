@@ -1,7 +1,40 @@
-# TaskMaster
-A Spring Boot API for managing daily tasks with JWT authentication and Spring Security.
+# Secure Task Management API
 
-This is a RESTful API built with Spring Boot to manage daily tasks. Each user is responsible for their own tasks, and the API allows users to:
-Add, update, and delete individual tasks. Delete all tasks for a user. The API integrates Spring Security for secure authentication and authorization using JWT (JSON Web Tokens) for token-based authentication, ensuring that only authenticated users can access their tasks.
+This is a secure and RESTful Task Management API built using **Spring Boot**, **Spring Security**, and **JWT**.  
+It allows users to register, log in, manage their tasks, and perform full CRUD operations — all protected by role-based access and ownership verification.
 
-Features: Task Management: Add, update, delete tasks. User Authentication: JWT-based authentication for secure login and access. Spring Security: Ensures only authorized users can access their data. CRUD Operations: Full functionality to manage tasks.
+## Authentication & Authorization
+
+- User registration and login.
+- Password update requires confirmation of the current password.
+- All sensitive routes are protected using **JWT-based authentication**.
+
+## Features
+
+- User Registration
+- Login with JWT
+- Update password (with old password verification)
+- Delete user (only if you are the owner)
+- Create, Read, Update, Delete Tasks
+- Each user has their own tasks (One-to-Many relationship)
+- Security checks before modifying or deleting any task
+
+## Tech Stack
+
+- Java
+- Spring Boot
+- Spring Security
+- JWT (JSON Web Tokens)
+- JPA / Hibernate
+- Lombok
+- PostgreSQL
+- RESTful API
+
+
+## Security Highlights
+
+- Uses JWT for stateless authentication
+- Spring Security configuration ensures only the **task owner** can:
+- Add, update, or delete a task
+- Delete their account
+- Password change logic enforces entering the **old password first**
